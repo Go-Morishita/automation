@@ -1,0 +1,249 @@
+{
+  "name": "wordpress_ai_tool_post",
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "WordPress post title (typically the AI tool name, e.g., 'Gemini')."
+      },
+      "slug": {
+        "type": "string",
+        "description": "Post URL slug, e.g., 'gemini-review'."
+      },
+      "status": {
+        "type": "string",
+        "enum": ["draft"],
+        "description": "Post status. For draft saving, always 'draft'."
+      },
+      "content": {
+        "type": "string",
+        "description": "Full HTML content of the post body."
+      },
+      "excerpt": {
+        "type": "string",
+        "description": "Manual excerpt text shown in listings."
+      },
+      "categories": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        },
+        "description": "Array of category term IDs (e.g., [1371])."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        },
+        "description": "Array of tag term IDs (e.g., [1358, 1361])."
+      },
+      "key_finding": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        },
+        "description": "Array of key_finding taxonomy term IDs (optional)."
+      },
+      "audience": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        },
+        "description": "Array of audience taxonomy term IDs (optional)."
+      },
+      "acf": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "logo": {
+            "type": ["integer", "null"],
+            "description": "Media ID of the tool logo (WordPress attachment ID)."
+          },
+          "product_website": {
+            "type": ["string", "null"],
+            "description": "Official product website URL."
+          },
+          "published_date": {
+            "type": ["string", "null"],
+            "description": "Human-readable published date, e.g., '2021, Aug, 17'."
+          },
+          "latest_update": {
+            "type": ["string", "null"],
+            "description": "Latest update date string, e.g., '2025 10/10/25'."
+          },
+          "latest_version": {
+            "type": ["string", "null"],
+            "description": "Latest version label, e.g., 'v 112.5'."
+          },
+          "seller": {
+            "type": ["string", "null"],
+            "description": "Vendor or company name, e.g., 'OpenAI'."
+          },
+          "discussion_url": {
+            "type": ["string", "null"],
+            "description": "Community or forum URL for this tool."
+          },
+          "keyfindingsraw": {
+            "type": ["string", "null"],
+            "description": "Raw multi-line key findings text (one finding per block)."
+          },
+          "overviewimage": {
+            "type": ["integer", "null"],
+            "description": "Media ID for the overview image (attachment ID)."
+          },
+          "boostedproductivity": {
+            "type": ["string", "null"],
+            "description": "Productivity boost label, e.g., '+60%'."
+          },
+          "lessmanualwork": {
+            "type": ["string", "null"],
+            "description": "Manual work reduction label, e.g., '6 hours/week'."
+          },
+          "overview": {
+            "type": ["string", "null"],
+            "description": "Overview text / intro paragraph."
+          },
+          "productvideo": {
+            "type": ["string", "null"],
+            "description": "Main product video URL (YouTube, etc.)."
+          },
+          "who_is_it_for": {
+            "type": ["string", "null"],
+            "description": "Multi-line audience description."
+          },
+          "pricing": {
+            "type": ["string", "null"],
+            "description": "Multi-line pricing text in your current ACF format."
+          },
+          "tutorialvid": {
+            "type": ["string", "null"],
+            "description": "Primary tutorial video URL."
+          },
+          "tutorialvid1": {
+            "type": ["string", "null"],
+            "description": "Secondary tutorial video URL (optional)."
+          },
+          "tutorialvid2": {
+            "type": ["string", "null"],
+            "description": "Tertiary tutorial video URL (optional)."
+          },
+          "twitterembedurl": {
+            "type": ["string", "null"],
+            "description": "X/Twitter post URL to embed in the article."
+          },
+          "megamenugroup": {
+            "type": ["array", "null"],
+            "description": "Audience group labels for the mega menu.",
+            "items": {
+              "type": "string",
+              "enum": ["Marketing", "Coder", "SEO", "Student", "Consultant"]
+            },
+            "minItems": 1,
+            "default": []
+          },
+          "megamenulabel": {
+            "type": ["string", "null"],
+            "description": "Label used for this tool in the mega menu."
+          },
+          "date_of_ai_tool": {
+            "type": ["string", "null"],
+            "description": "AI tool date in 'YYYYMMDD' format, e.g., '20251123'."
+          },
+          "site_img": {
+            "type": ["integer", "null"],
+            "description": "Media ID of site image (attachment ID)."
+          },
+          "site_name": {
+            "type": ["string", "null"],
+            "description": "Site name or brand label (optional)."
+          },
+          "whoisitforlogo": {
+            "type": ["integer", "null"],
+            "description": "Media ID for the 'Who is it for' logo image."
+          },
+          "thumbsup": {
+            "type": ["integer", "null"],
+            "description": "Media ID for the thumbs-up icon."
+          },
+          "scrape_url": {
+            "type": ["string", "null"],
+            "description": "Release notes or changelog URL used by the scraper."
+          },
+          "version_selector": {
+            "type": ["string", "null"],
+            "description": "CSS selector for scraping the version text."
+          },
+          "owner_selector": {
+            "type": ["string", "null"],
+            "description": "CSS selector for scraping the owner text (optional)."
+          },
+          "description_selector": {
+            "type": ["string", "null"],
+            "description": "CSS selector for scraping the description text."
+          },
+          "scrape_enabled": {
+            "type": ["boolean", "null"],
+            "description": "Whether automatic scraping is enabled for this tool."
+          },
+          "scrape_frequency_hours": {
+            "type": ["number", "null"],
+            "description": "Scrape interval in hours (e.g., 1, 24)."
+          },
+          "scrape_error_log": {
+            "type": ["string", "null"],
+            "description": "Last scrape error message or empty string."
+          }
+        },
+        "required": [
+          "logo",
+          "product_website",
+          "published_date",
+          "latest_update",
+          "latest_version",
+          "seller",
+          "discussion_url",
+          "keyfindingsraw",
+          "overviewimage",
+          "boostedproductivity",
+          "lessmanualwork",
+          "overview",
+          "productvideo",
+          "who_is_it_for",
+          "pricing",
+          "tutorialvid",
+          "tutorialvid1",
+          "tutorialvid2",
+          "twitterembedurl",
+          "megamenugroup",
+          "megamenulabel",
+          "date_of_ai_tool",
+          "site_img",
+          "site_name",
+          "whoisitforlogo",
+          "thumbsup",
+          "scrape_url",
+          "version_selector",
+          "owner_selector",
+          "description_selector",
+          "scrape_enabled",
+          "scrape_frequency_hours",
+          "scrape_error_log"
+        ]
+      }
+    },
+    "required": [
+      "title",
+      "slug",
+      "status",
+      "content",
+      "excerpt",
+      "categories",
+      "tags",
+      "key_finding",
+      "audience",
+      "acf"
+    ]
+  }
+}
